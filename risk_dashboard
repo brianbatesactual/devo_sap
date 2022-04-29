@@ -1,0 +1,731 @@
+{
+  "type": "container",
+  "subtype": "Grid",
+  "datasource": null,
+  "definitions": null,
+  "date": null,
+  "settings": {
+    "layout": {
+      "SimpleValue9": {
+        "w": 2,
+        "h": 5,
+        "x": 6,
+        "y": 5,
+        "i": "SimpleValue9",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue7": {
+        "w": 2,
+        "h": 5,
+        "x": 2,
+        "y": 5,
+        "i": "SimpleValue7",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue8": {
+        "w": 2,
+        "h": 5,
+        "x": 4,
+        "y": 5,
+        "i": "SimpleValue8",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue1": {
+        "w": 2,
+        "h": 5,
+        "x": 0,
+        "y": 5,
+        "i": "SimpleValue1",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue2": {
+        "w": 2,
+        "h": 5,
+        "x": 2,
+        "y": 0,
+        "i": "SimpleValue2",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue11": {
+        "w": 2,
+        "h": 5,
+        "x": 10,
+        "y": 5,
+        "i": "SimpleValue11",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue0": {
+        "w": 2,
+        "h": 5,
+        "x": 0,
+        "y": 0,
+        "i": "SimpleValue0",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue10": {
+        "w": 2,
+        "h": 5,
+        "x": 8,
+        "y": 5,
+        "i": "SimpleValue10",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue5": {
+        "w": 2,
+        "h": 5,
+        "x": 10,
+        "y": 0,
+        "i": "SimpleValue5",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue6": {
+        "w": 2,
+        "h": 5,
+        "x": 8,
+        "y": 0,
+        "i": "SimpleValue6",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue3": {
+        "w": 2,
+        "h": 5,
+        "x": 4,
+        "y": 0,
+        "i": "SimpleValue3",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue4": {
+        "w": 2,
+        "h": 5,
+        "x": 6,
+        "y": 0,
+        "i": "SimpleValue4",
+        "moved": false,
+        "static": false
+      },
+      "Table0": {
+        "w": 6,
+        "h": 9,
+        "x": 0,
+        "y": 10,
+        "i": "Table0",
+        "moved": false,
+        "static": false
+      },
+      "Table1": {
+        "w": 6,
+        "h": 9,
+        "x": 6,
+        "y": 10,
+        "i": "Table1",
+        "moved": false,
+        "static": false
+      }
+    },
+    "header": false
+  },
+  "extra": null,
+  "children": {
+    "SimpleValue9": {
+      "name": "RFC callback security mode",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"1: Default\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 40,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "notEqual",
+            "value": "0",
+            "color": "#7ed321",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "SimpleValue7": {
+      "name": "Password expiration policy",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"Not set\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 40,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "greater",
+            "value": "0",
+            "color": "#d0021b",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "SimpleValue8": {
+      "name": "Security Audit Log Parameter",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"Disabled\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 40,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "greater",
+            "value": "0",
+            "color": "#d0021b",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "SimpleValue1": {
+      "name": "User type change - System to Dialog",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"0\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 100,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "equal",
+            "value": "0",
+            "color": "#7ed321",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "SimpleValue2": {
+      "name": "Client open for change",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"3\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 100,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "greater",
+            "value": "0",
+            "color": "#d0021b",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "SimpleValue11": {
+      "name": "Logical Path Access Failed",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"0\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 100,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "equal",
+            "value": "0",
+            "color": "#7ed321",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "SimpleValue0": {
+      "name": "Standard users with initial well-known password",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"1\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 100,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "greater",
+            "value": "0",
+            "color": "#d0021b",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "SimpleValue10": {
+      "name": "OS commands prohibited",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"NO\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 100,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "greater",
+            "value": "0",
+            "color": "#d0021b",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "SimpleValue5": {
+      "name": "Soon to be expired",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"0\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 100,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "equal",
+            "value": "0",
+            "color": "#7ed321",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "SimpleValue6": {
+      "name": "Certificate Status - Expired",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"0\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 100,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "equal",
+            "value": "0",
+            "color": "#7ed321",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "SimpleValue3": {
+      "name": "Namespace open for change",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"90\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 100,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "greater",
+            "value": "0",
+            "color": "#d0021b",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "SimpleValue4": {
+      "name": "Dialog users not compliant with password expiration policy",
+      "description": "This is my SimpleValue: SimpleValue0",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"0\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 100,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "equal",
+            "value": "0",
+            "color": "#7ed321",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "Table0": {
+      "name": "Password complexity",
+      "description": "This is my Table: Table0",
+      "type": "widget",
+      "subtype": "Table",
+      "datasource": "from my.app \nselect peek(message, \"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as EVENT_TYPE \nwhere eq(EVENT_TYPE, \"RZ10\") \nselect peek(message, \"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as PAR_DEFAULT_WERT1 \nselect peek(message, \"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as PAR_DEFAULT_WERT2 \nselect peek(message, \"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as PAR_NAME \nselect peek(message, \"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as PAR_USER_WERT \nselect peek(message, \"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as GROUPNAME \nwhere eq(PAR_NAME, \"login/min_password_lowercase\") or eq(PAR_NAME, \"login/min_password_uppercase\") or eq(PAR_NAME, \"login/min_password_specials\")\nselect replaceall(PAR_DEFAULT_WERT1, \"0\", \"Disabled\") as PAR_DEFAULT_WERT\ngroup by PAR_NAME, PAR_DEFAULT_WERT",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "paginationAutoPageSize": true,
+        "pagination": false,
+        "topEnabled": false,
+        "topRowLimits": 10,
+        "typeSort": "desc",
+        "paginationPageSize": 100,
+        "fieldOrder": "PAR_NAME",
+        "columnDefs": [
+          {
+            "headerName": "PAR_NAME",
+            "field": "PAR_NAME",
+            "sortable": true,
+            "resizable": true,
+            "filter": true,
+            "width": 262,
+            "sort": null,
+            "hide": false,
+            "cellRenderer": null,
+            "cellRendererParams": {
+              "formatValues": [],
+              "patternLink": "$value"
+            },
+            "formatValues": []
+          },
+          {
+            "headerName": "PAR_DEFAULT_WERT",
+            "field": "PAR_DEFAULT_WERT",
+            "sortable": true,
+            "resizable": true,
+            "filter": true,
+            "width": null,
+            "sort": null,
+            "hide": false,
+            "cellRenderer": "conditionalRenderer",
+            "cellRendererParams": {
+              "formatValues": [
+                {
+                  "operator": "notEqual",
+                  "value": "Enabled",
+                  "color": "#d0021b",
+                  "backgroundColor": "white",
+                  "iconUrl": ""
+                }
+              ],
+              "patternLink": "$value"
+            },
+            "formatValues": {
+              "conditional": [
+                {
+                  "operator": "notEqual",
+                  "value": "Enabled",
+                  "color": "#d0021b",
+                  "backgroundColor": "white",
+                  "iconUrl": ""
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "PAR_NAME",
+            "type": "str"
+          },
+          {
+            "name": "PAR_DEFAULT_WERT",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "Table1": {
+      "name": "Unsecured external commands executed (sapxpg)",
+      "description": "This is my Table: Table1",
+      "type": "widget",
+      "subtype": "Table",
+      "datasource": "",
+      "definitions": null,
+      "date": {},
+      "settings": {},
+      "extra": null,
+      "children": null,
+      "version": 3
+    }
+  },
+  "version": 3
+}
