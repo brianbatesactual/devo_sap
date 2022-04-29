@@ -1,0 +1,168 @@
+{
+  "type": "container",
+  "subtype": "Grid",
+  "datasource": null,
+  "definitions": null,
+  "date": null,
+  "settings": {
+    "layout": {
+      "Select0": {
+        "w": 3,
+        "h": 4,
+        "x": 0,
+        "y": 0,
+        "i": "Select0",
+        "moved": false,
+        "static": false
+      },
+      "SimpleValue0": {
+        "w": 2,
+        "h": 6,
+        "x": 3,
+        "y": 0,
+        "i": "SimpleValue0",
+        "moved": false,
+        "static": false
+      },
+      "Table0": {
+        "w": 8,
+        "h": 8,
+        "x": 0,
+        "y": 6,
+        "i": "Table0",
+        "moved": false,
+        "static": false
+      }
+    },
+    "header": false
+  },
+  "extra": null,
+  "children": {
+    "Select0": {
+      "name": "Select0",
+      "description": "This is my Select: Select0",
+      "type": "input",
+      "subtype": "Select",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "isMulti": false,
+        "menuIsOpen": false,
+        "isDisabled": false,
+        "isSearchable": true,
+        "placeholder": "",
+        "showFooter": false
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "EVENT_TYPE",
+            "type": "str"
+          },
+          {
+            "name": "PAR_DEFAULT_WERT1",
+            "type": "str"
+          },
+          {
+            "name": "PAR_DEFAULT_WERT2",
+            "type": "str"
+          },
+          {
+            "name": "PAR_NAME",
+            "type": "str"
+          },
+          {
+            "name": "PAR_USER_WERT",
+            "type": "str"
+          },
+          {
+            "name": "GROUPNAME",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 4
+    },
+    "SimpleValue0": {
+      "name": "OS Commands Prohibited",
+      "description": "Evaluating RZ10 profile for OS Commands (1 = NO)",
+      "type": "widget",
+      "subtype": "SimpleValue",
+      "datasource": "from my.app\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\n  where EVENT_TYPE = \"RZ10\"\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT1\nselect peek(message, re(\"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_DEFAULT_WERT2\nselect peek(message, re(\"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_NAME\nselect peek(message, re(\"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as PAR_USER_WERT\nselect peek(message, re(\"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as GROUPNAME\n  where PAR_NAME = \"rdisp/call_system\"\ngroup every 10m by PAR_DEFAULT_WERT1\nselect max(PAR_DEFAULT_WERT1) as status1\nselect replaceall(status1, \"1\", \"NO\") as status\ngroup by status",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "field": "status",
+        "color": "black",
+        "size": 100,
+        "patternLink": "$value",
+        "prefix": "",
+        "decimals": 2,
+        "link": false,
+        "weight": "700",
+        "label": "",
+        "suffix": "",
+        "conditions": [
+          {
+            "operator": "greater",
+            "value": "0",
+            "color": "#d0021b",
+            "backgroundColor": "#000",
+            "iconUrl": ""
+          }
+        ],
+        "trans": null
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "status",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "Table0": {
+      "name": "Table0",
+      "description": "This is my Table: Table0",
+      "type": "widget",
+      "subtype": "Table",
+      "datasource": "from my.app \nselect peek(message, \"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as EVENT_TYPE \nwhere eq(EVENT_TYPE, \"RZ10\") \nselect peek(message, \"\\\\\\\\\\\"PAR_DEFAULT_WERT1\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as PAR_DEFAULT_WERT1 \nselect peek(message, \"\\\\\\\\\\\"PAR_DEFAULT_WERT2\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as PAR_DEFAULT_WERT2 \nselect peek(message, \"\\\\\\\\\\\"PAR_NAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as PAR_NAME \nselect peek(message, \"\\\\\\\\\\\"PAR_USER_WERT\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as PAR_USER_WERT \nselect peek(message, \"\\\\\\\\\\\"GROUPNAME\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\", 1) as GROUPNAME \nwhere eq(PAR_NAME, \"login/min_password_lowercase\") or eq(PAR_NAME, \"login/min_password_uppercase\") or eq(PAR_NAME, \"login/min_password_specials\")\nselect replaceall(PAR_DEFAULT_WERT1, \"0\", \"Disabled\") as PAR_DEFAULT_WERT\ngroup by PAR_NAME, PAR_DEFAULT_WERT",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "columnDefs": [
+          {
+            "headerName": "PAR_NAME",
+            "field": "PAR_NAME",
+            "hide": false
+          },
+          {
+            "headerName": "PAR_DEFAULT_WERT",
+            "field": "PAR_DEFAULT_WERT",
+            "hide": false
+          }
+        ]
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "PAR_NAME",
+            "type": "str"
+          },
+          {
+            "name": "PAR_DEFAULT_WERT",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    }
+  },
+  "version": 3
+}
