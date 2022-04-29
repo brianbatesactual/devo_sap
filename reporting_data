@@ -1,0 +1,164 @@
+{
+  "type": "container",
+  "subtype": "Grid",
+  "datasource": null,
+  "definitions": null,
+  "date": null,
+  "settings": {
+    "layout": {
+      "Table2": {
+        "w": 2,
+        "h": 22,
+        "x": 4,
+        "y": 0,
+        "i": "Table2",
+        "moved": false,
+        "static": false
+      },
+      "Table3": {
+        "w": 2,
+        "h": 22,
+        "x": 6,
+        "y": 0,
+        "i": "Table3",
+        "moved": false,
+        "static": false
+      },
+      "Table0": {
+        "w": 2,
+        "h": 22,
+        "x": 0,
+        "y": 0,
+        "i": "Table0",
+        "moved": false,
+        "static": false
+      },
+      "Table1": {
+        "w": 2,
+        "h": 22,
+        "x": 2,
+        "y": 0,
+        "i": "Table1",
+        "moved": false,
+        "static": false
+      }
+    },
+    "header": false
+  },
+  "extra": null,
+  "children": {
+    "Table2": {
+      "name": "Hosts Reporting",
+      "description": "This is my Table: Table1",
+      "type": "widget",
+      "subtype": "Table",
+      "datasource": "from my.app.sap\nselect peek(message, re(\"\\\"host\\\":\\\"(.*?)\\\"\"),1) as host\ngroup by host",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "columnDefs": [
+          {
+            "headerName": "host",
+            "field": "host",
+            "hide": false
+          }
+        ]
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "host",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "Table3": {
+      "name": "Sourcetypes Reporting",
+      "description": "This is my Table: Table1",
+      "type": "widget",
+      "subtype": "Table",
+      "datasource": "from my.app.sap\nselect peek(message, re(\"\\\"sourcetype\\\":\\\"(.*?)\\\"\"),1) as sourcetype\ngroup by sourcetype",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "columnDefs": [
+          {
+            "headerName": "sourcetype",
+            "field": "sourcetype",
+            "hide": false
+          }
+        ]
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "sourcetype",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "Table0": {
+      "name": "Current Available Event Types",
+      "description": "This is my Table: Table0",
+      "type": "widget",
+      "subtype": "Table",
+      "datasource": "from my.app.sap\nselect peek(message, re(\"\\\\\\\\\\\"EVENT_TYPE\\\\\\\\\\\":\\\\\\\\\\\"(.*?)\\\\\\\\\\\"\"),1) as EVENT_TYPE\ngroup by EVENT_TYPE",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "columnDefs": [
+          {
+            "headerName": "EVENT_TYPE",
+            "field": "EVENT_TYPE",
+            "hide": false
+          }
+        ]
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "EVENT_TYPE",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    },
+    "Table1": {
+      "name": "SIDs Reporting",
+      "description": "This is my Table: Table1",
+      "type": "widget",
+      "subtype": "Table",
+      "datasource": "from my.app.sap\nselect peek(message, re(\"\\\"source\\\":\\\"(.*?)\\\"\"),1) as SIDs\ngroup by SIDs",
+      "definitions": null,
+      "date": {},
+      "settings": {
+        "columnDefs": [
+          {
+            "headerName": "SIDs",
+            "field": "SIDs",
+            "hide": false
+          }
+        ]
+      },
+      "extra": {
+        "lastMetadata": [
+          {
+            "name": "SIDs",
+            "type": "str"
+          }
+        ]
+      },
+      "children": null,
+      "version": 3
+    }
+  },
+  "version": 3
+}
